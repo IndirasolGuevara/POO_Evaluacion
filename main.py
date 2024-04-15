@@ -1,26 +1,30 @@
 from eventos import Evento
-from actividad_academica import TrabajoPractico,ReunionEstudio,Examen,Agenda
+from actividad_academica import TrabajoPractico,ReunionEstudio,Examen
+from Agenda import Agenda
+agenda = Agenda()
+evento = Evento()
+seleccion= input("ingrese 1 si quiere agregar un evento, 2 para eliminar 3 para mostrar los eventos, 4 salir ")
+while seleccion < "4":
+    if seleccion =="1":
+        nombreEvento= str(input ("ingrese el nombre que le va a dar a su evento: "))
+        materia=str(input("ingrese la materia "))
+        fecha= str(input("ingrese la fecha de su examen: "))
+        descripcion=str(input("ingrese info de su examen "))
+        seleccionEvento=input("ingrese 1 si desea agregar a su agenda un examen, 2) agregar un trabajo practico, 3)una reunion de estudio")
+        if seleccionEvento =="1":
+            evento= Examen(nombreEvento, fecha, descripcion, materia)
+        elif seleccionEvento =="2":
+            evento= TrabajoPractico(nombreEvento,fecha,descripcion,materia)
+        elif seleccionEvento =="3":
+            evento= ReunionEstudio(nombreEvento,fecha,descripcion,materia)
+        agenda.añadir_evento(evento)    
 
+    if seleccion =="2":
+          opcion=input("ingrese el nombre del evento")
+          Agenda.eliminarEvento(opcion)
 
-seleccion=input("ingrese 1 si desea agregar a su agenda un examen, 2) agregar un trabajo practico, 3)una reunion de estudio")
-if seleccion=="1":
-    materia=str(input("ingrese la materia "))
-    fechaExamen= int(input("ingrese la fecha de su examen: "))
-    descripcion_examen=str(input("ingrese info de su examen "))
-    mi_examen= Examen(fechaExamen,descripcion_examen,materia)
+    if seleccion =="3":
+        Agenda.mostrar()
 
-elif seleccion =="2":
-    materia=str(input("ingrese la materia "))
-    fechaTP= int(input("ingrese la fecha de su examen: "))
-    descripcion_TP=str(input("ingrese info de su examen "))
-    mi_TP= TrabajoPractico(fechaTP,descripcion_TP,materia)
-    
-elif seleccion =="3":
-    materia=str(input("ingrese la materia que se va a estudiar "))
-    fechaRE= int(input("ingrese la fecha de su examen: "))
-    descripcion_RE=str(input("ingrese info de su examen "))
-    mi_RE= ReunionEstudio(fechaRE,descripcion_RE,materia)
-    
-
-
+    seleccion= input("ingrese 1 si quiere agregar un evento, 2 para eliminar 3 para mostrar los eventos, 4 salir")
 
