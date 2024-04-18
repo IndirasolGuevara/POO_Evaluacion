@@ -4,7 +4,7 @@ class TrabajoPractico(Evento):
     super().__init__(nombreEvento, fecha, descripcion)
     self.materia= materia
 
-  def __str__(self):
+  def __str__(self):#para que te devuelva un string
     return f"trabajo practico de{self.materia}:{self.descripcion}fecha:{self.fecha}"
 
 class ReunionEstudio(Evento):
@@ -15,9 +15,9 @@ class ReunionEstudio(Evento):
     return f"Reunion de estudio {self.materia}:{self.descripcion}fecha:{self.fecha}"
 
 class Examen(Evento):
-  def __init__(self,nombreEvento,fecha, descripcion,materia):
-    super().__init__(nombreEvento,fecha, descripcion)
-    self.materia= materia
+    def __init__(self, nombreEvento, fecha, descripcion, materia):
+        super().__init__(nombreEvento,fecha,descripcion)
+        self.materia = materia
     def __str__(self):
         return f"el examen de {self.materia}:{self.descripcion}fecha:{self.fecha}"
 
